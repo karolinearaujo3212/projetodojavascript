@@ -1,0 +1,368 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Estilos para o cabeçalho */
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #2c3e50;
+  }
+  
+  /* Formulário de cadastro */
+  .form-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input, select {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #2ecc71;
+  }
+  
+  /* Estilos para a lista de alunos cadastrados */
+  .cadastros {
+    margin-top: 40px;
+  }
+  
+  .aluno {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .aluno strong {
+    color: #27ae60;
+  }
+  
+  .aluno button {
+    padding: 6px 10px;
+    background-color: #e74c3c;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .aluno button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Agenda de Treinos */
+  .agenda {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #2c3e50;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ecf0f1;
+  }
+  
+  tr:hover {
+    background-color: #f4f6f7;
+  }
+  
+  /* Exibição de Produtos para Venda */
+  .produtos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .produto {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .produto:hover {
+    transform: translateY(-5px);
+  }
+  
+  .produto img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .produto p {
+    margin: 15px 0;
+    font-size: 16px;
+  }
+  
+  .produto button {
+    padding: 8px 12px;
+    background-color: #3498db;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .produto button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Carrinho de Compras */
+  .carrinho {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .carrinho h2 {
+    color: #27ae60;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #itensCarrinho {
+    margin-bottom: 15px;
+  }
+  
+  #itensCarrinho div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  #itensCarrinho span {
+    font-size: 16px;
+  }
+  
+  #totalCarrinho {
+    font-size: 20px;
+    font-weight: bold;
+    color: #27ae60;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #e67e22;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #d35400;
+  }
+  
+  /* Informações de Retirada */
+  #informacoesRetirada {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  #informacoesRetirada h3 {
+    color: #27ae60;
+    margin-bottom: 20px;
+  }
+  
+  #informacoesRetirada p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  /* Responsividade */
+  @media screen and (max-width: 768px) {
+    .produtos {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .produto {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+  
+    .agenda table, .agenda th, .agenda td {
+      font-size: 14px;
+    }
+  
+    .cadastros, .carrinho, #informacoesRetirada {
+      width: 100%;
+    }
+  }
+  .modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px;
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #planos {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+  }
+  
+  #planos h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  #planos p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+  }
+  
+  .planos-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .plano {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+  }
+  
+  .plano h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+  
+  .plano .preco {
+    font-size: 1.5em;
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+  
+  .plano .desconto {
+    font-size: 1.2em;
+    color: #dc3545;
+    margin-bottom: 20px;
+  }
+  
+  .plano button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+  }
+  
+  .plano button:hover {
+    background-color: #0056b3;
+  }

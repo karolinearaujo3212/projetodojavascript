@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="cadastro" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Jiu-Jitsu</title>
+  <link rel="stylesheet" href="jiu.css"> 
+</head>
+<body>
+  <h1>Cadastro de Alunos - Zforce Escola de Lutas</h1>
+  <div class="form-container">
+    <form id="formAluno" onsubmit="cadastrarAluno(event)">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" required />
+
+      <label for="idade">Idade:</label>
+      <input type="number" id="idade" required />
+
+      <label for="faixa">Faixa:</label>
+      <select id="faixa" required>
+        <option value="">Selecione</option>
+        <option value="Branca">Branca</option>
+        <option value="Cinza">Cinza</option>
+        <option value="Cinza e Preto">Cinza e Preto</option>
+        <option value="Amarela">Amarela</option>
+        <option value="Amarela e Preto">Amarela e Preto</option>
+        <option value="Laranja">Laranja</option>
+        <option value="Laranja e Preto">Laranja e Preto</option>
+        <option value="Verde">Verde</option>
+        <option value="Verde e Preto">Verde e Preto</option>
+        <option value="Azul">Azul</option>
+        <option value="Roxa">Roxa</option>
+        <option value="Marrom">Marrom</option>
+        <option value="Preta">Preta</option>
+      </select>
+
+      <label for="modalidade">Modalidade:</label>
+      <select id="modalidade" required>
+        <option value="">Selecione</option>
+        <option value="Infantil">Infantil</option>
+        <option value="Juvenil">Juvenil</option>
+        <option value="Adulto">Adulto</option>
+      </select>
+
+      <label for="dataCadastro">Data de Cadastro:</label>
+      <input type="date" id="dataCadastro" required />
+
+      <label for="horaCadastro">Hora de Cadastro:</label>
+      <input type="time" id="horaCadastro" required />
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+
+  <div class="agenda">
+    <h2>Agenda de Treinos</h2>
+    <table>
+      <tr><th>Dia</th><th>Horário</th><th>Turma</th></tr>
+      <tr><td>Segunda-Feira</td><td>18:10</td><td>Infantil</td></tr>
+      <tr><td>Segunda-Feira</td><td>19:00</td><td>Infanto Juvenil e Juvenil</td></tr>
+      <tr><td>Segunda-Feira</td><td>20:00</td><td>Iniciante</td></tr>
+      <tr><td>Terça-Feira</td><td>18:00</td><td>Infanto Juvenil e Juvenil</td></tr>
+      <tr><td>Terça-Feira</td><td>19:00</td><td>Feminino</td></tr>
+      <tr><td>Terça-Feira</td><td>20:00</td><td>Adulto</td></tr>
+      <tr><td>Quarta-Feira</td><td>18:10</td><td>Infantil</td></tr>
+      <tr><td>Quarta-Feira</td><td>19:00</td><td>Infanto Juvenil e Juvenil</td></tr>
+      <tr><td>Quarta-Feira</td><td>20:00</td><td>Iniciante</td></tr>
+      <tr><td>Quinta-Feira</td><td>18:00</td><td>Infanto Juvenil e Juvenil</td></tr>
+      <tr><td>Quinta-Feira</td><td>19:00</td><td>Feminino</td></tr>
+      <tr><td>Quinta-Feira</td><td>20:00</td><td>Adulto</td></tr>
+      <tr><td>Sexta-Feira</td><td>18:10</td><td>Infantil</td></tr>
+      <tr><td>Sexta-Feira</td><td>19:00</td><td>Infanto Juvenil e Juvenil</td></tr>
+      <tr><td>Sexta-Feira</td><td>20:00</td><td>Iniciante</td></tr>
+    </table>
+  </div>
+
+  <!-- Lista de Alunos Cadastrados -->
+  <div class="cadastros" id="listaAlunos">
+    <!-- Alunos cadastrados aparecerão aqui -->
+  </div>
+
+  <!-- Carrinho de Compras -->
+  <div class="carrinho" id="carrinho">
+    <h2>Carrinho de Compras</h2>
+    <div id="itensCarrinho"></div>
+    <div><strong>Total:</strong> R$<span id="totalCarrinho">0.00</span></div>
+    <button onclick="finalizarCompra()">Finalizar Compra</button>
+  </div>
+
+  <div class="produtos">
+    <h2>Produtos para Venda</h2>
+    <div class="produto" data-preco="400">
+      <img src="kimonovoukbranco.webp" alt="Kimono de Jiu-Jitsu">
+      <p>Kimono de Jiu-Jitsu - R$400,00</p>
+      <button onclick="adicionarCarrinho('Kimono de Jiu-Jitsu', 400)">Comprar</button>
+    </div>
+    <div class="produto" data-preco="400">
+      <img src="kimonovoukmilitar.webp" alt="Kimono de Jiu-Jitsu Militar">
+      <p>Kimono de Jiu-Jitsu Militar - R$400,00</p>
+      <button onclick="adicionarCarrinho('Kimono Militar', 400)">Comprar</button>
+    </div>
+    <div class="produto" data-preco="500">
+      <img src="kimonovouktokyo.webp" alt="Kimono de Jiu-Jitsu Tokyo">
+      <p>Kimono de Jiu-Jitsu Tokyo - R$500,00</p>
+      <button onclick="adicionarCarrinho('Kimono Tokyo', 500)">Comprar</button>
+    </div>
+    <div class="produto" data-preco="150">
+      <img src="rash guard modelos.jfif" alt="Rash Guard">
+      <p>Rash Guard - R$150,00</p>
+      <button onclick="adicionarCarrinho('Rash Guard', 150)">Comprar</button>
+    </div>
+    <div class="produto" data-preco="150">
+        <img src="rashguardecoloridas.jfif" alt="Rash Guard">
+        <p>Rash Guard - R$150,00</p>
+        <button onclick="adicionarCarrinho('Rash Guard', 150)">Comprar</button>
+      </div>
+      <div class="produto" data-preco="150">
+        <img src="rashguardebrasil.jfif" alt="Rash Guard">
+        <p>Rash Guard - R$150,00</p>
+        <button onclick="adicionarCarrinho('Rash Guard', 150)">Comprar</button>
+      </div>
+    <div class="produto" data-preco="30">
+      <img src="protetor.webp" alt="Protetor Bucal">
+      <p>Protetor Bucal - R$30,00</p>
+      <button onclick="adicionarCarrinho('Protetor Bucal', 30)">Comprar</button>
+    </div>
+    <div class="produto" data-preco="150">
+        <img src="camisazforce preta.jfif" alt="Camiseta">
+        <p>Rash Guard - R$150,00</p>
+        <button onclick="adicionarCarrinho('Camiseta', 150)">Comprar</button>
+      </div>
+      <div class="produto" data-preco="150">
+        <img src="camisazforcezazul.jfif" alt="Camiseta">
+        <p>Rash Guard - R$150,00</p>
+        <button onclick="adicionarCarrinho('Camiseta', 150)">Comprar</button>
+      </div>
+  </div>
+<!-- Modal Carrinho -->
+<div id="modalCarrinho" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Carrinho de Compras</h2>
+      <div id="itensCarrinho"></div>
+      <p id="totalCarrinho"></p>
+      <button id="finalizarCompra">Finalizar Compra</button>
+    </div>
+  </div>
+  <section id="planos">
+    <h2>Planos de Assinatura</h2>
+    <p>Escolha o plano que melhor se adapta a você e aproveite nossos descontos exclusivos!</p>
+    
+    <div class="planos-container">
+      <!-- Plano Mensal -->
+      <div class="plano">
+        <h3>Mensal</h3>
+        <p class="preco">R$ 258,00/mês</p>
+        <p>Treinos de segunda a sexta-feira, das 7h às 8h</p>
+        <button onclick="assinarPlano('Mensal')">Assinar</button>
+      </div>
+      
+      <!-- Plano Semestral -->
+      <div class="plano">
+        <h3>Semestral</h3>
+        <p class="preco">R$ 1.441,42 (6x R$ 240,24)</p>
+        <p>Treinos de segunda a sexta-feira, das 7h às 8h</p>
+        <p class="desconto">Economize 10%!</p>
+        <button onclick="assinarPlano('Semestral')">Assinar</button>
+      </div>
+      
+      <!-- Plano Anual -->
+      <div class="plano">
+        <h3>Anual</h3>
+        <p class="preco">R$ 2.700,00 (12x R$ 225,00)</p>
+        <p>Treinos de segunda a sexta-feira, das 7h às 8h</p>
+        <p class="desconto">Economize 15%!</p>
+        <button onclick="assinarPlano('Anual')">Assinar</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="informacoesRetirada">
+    <h3>Onde e Quando Retirar o Produto</h3>
+    <p><strong>Endereço:</strong> R. Manoel José de Arruda, 01 - Quadra 09 - Nossa Sra. da Guia, Várzea Grande - MT, 78130-095</p>
+    <p><strong>Horário de Retirada:</strong> De segunda a sexta-feira, das 17h às 21h.</p>
+  </div>
+  <script src="jiujitsu.js"></script> 
+</body>
+</html>
+
