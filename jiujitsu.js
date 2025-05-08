@@ -2,67 +2,62 @@ let carrinho = [];
 
 // Função para adicionar produtos ao carrinho
 function adicionarCarrinho(nome, preco) {
-  // Adiciona o produto ao carrinho
-  carrinho.push({ nome, preco });
-  
-  // Atualiza o carrinho na interface
-  atualizarCarrinho();
+  carrinho.push({ nome, preco });         // Adiciona item ao carrinho
+  atualizarCarrinho();                    // Atualiza interface do carrinho
+  document.getElementById("modalCarrinho").style.display = "block"; // Exibe modal
 }
 
-// Função para atualizar o carrinho na interface
+// Atualiza visualmente o carrinho
 function atualizarCarrinho() {
   const itensCarrinho = document.getElementById('itensCarrinho');
   const totalCarrinho = document.getElementById('totalCarrinho');
 
-  // Limpa o carrinho atual
-  itensCarrinho.innerHTML = '';
+  itensCarrinho.innerHTML = ''; // Limpa os itens anteriores
 
-  // Adiciona os itens ao carrinho
   let total = 0;
   carrinho.forEach((item, index) => {
     total += item.preco;
     itensCarrinho.innerHTML += `
       <div>
-        <span>${item.nome} - R$${item.preco}</span>
+        <span>${item.nome} - R$${item.preco},00</span>
         <button onclick="removerDoCarrinho(${index})">Remover</button>
       </div>
     `;
   });
 
-  // Atualiza o total
-  totalCarrinho.textContent = total.toFixed(2);
+  totalCarrinho.textContent = `Total: R$ ${total.toFixed(2)}`;
 }
 
-// Função para remover itens do carrinho
+// Remove um item do carrinho
 function removerDoCarrinho(index) {
-  carrinho.splice(index, 1); // Remove o item do carrinho
-  atualizarCarrinho(); // Atualiza a interface
+  carrinho.splice(index, 1);
+  atualizarCarrinho();
 }
 
-// Função para finalizar a compra
+// Finaliza a compra
 function finalizarCompra() {
   if (carrinho.length === 0) {
     alert('Seu carrinho está vazio!');
-  } else {
-    alert('Compra finalizada com sucesso! Agora é só retirar o seu produto.');
-    carrinho = []; // Limpa o carrinho após a compra
-    atualizarCarrinho(); // Atualiza a interface
+    return;
   }
+
+  alert('Compra finalizada com sucesso! Agora é só retirar o seu produto.');
+  carrinho = [];
+  atualizarCarrinho();
+  document.getElementById("modalCarrinho").style.display = "none";
 }
 
-// Função para cadastrar o aluno
+// Função para cadastrar um aluno
 function cadastrarAluno(event) {
   event.preventDefault();
-  
   if (!validarFormulario()) return;
-  
+
   const nome = document.getElementById('nome').value.trim();
   const idade = parseInt(document.getElementById('idade').value.trim(), 10);
   const faixa = document.getElementById('faixa').value.trim();
   const modalidade = document.getElementById('modalidade').value.trim();
-  
   const tempoParaProximaFaixa = calcularProgresso(faixa);
-  
+
   const lista = document.getElementById('listaAlunos');
   const div = document.createElement('div');
   div.className = 'aluno';
@@ -75,54 +70,47 @@ function cadastrarAluno(event) {
     <button onclick="removerAluno(this)">Remover</button>
   `;
   lista.appendChild(div);
-  
-  // Mensagem de sucesso
+
   alert('Aluno cadastrado com sucesso!');
-  
   document.getElementById('formAluno').reset();
 }
 
-// Função para remover o cadastro de um aluno
+// Remove um aluno cadastrado
 function removerAluno(button) {
-  const aluno = button.parentElement; // Encontrar o elemento pai (o "div" do aluno)
-  aluno.remove(); // Remover o aluno da lista
+  button.parentElement.remove();
 }
 
-// Função para validar o formulário
+// Validação do formulário de cadastro
 function validarFormulario() {
   const nome = document.getElementById('nome').value.trim();
   const idade = parseInt(document.getElementById('idade').value.trim(), 10);
   const faixa = document.getElementById('faixa').value.trim();
   const modalidade = document.getElementById('modalidade').value.trim();
-  
-  // Validação de nome
+
   if (!nome || !/^[a-zA-Z\s]+$/.test(nome)) {
-    alert('Nome inválido. Por favor, insira um nome válido (somente letras e espaços).');
+    alert('Nome inválido. Use apenas letras e espaços.');
     return false;
   }
-  
-  // Validação de idade
+
   if (isNaN(idade) || idade < 4) {
     alert('Idade inválida. A idade mínima é 4 anos.');
     return false;
   }
-  
-  // Validação de faixa
+
   if (!faixa) {
     alert('Por favor, selecione uma faixa.');
     return false;
   }
-  
-  // Validação de modalidade
+
   if (!modalidade) {
     alert('Por favor, selecione uma modalidade.');
     return false;
   }
-  
+
   return true;
 }
 
-// Função para calcular o tempo para a próxima faixa
+// Tempo estimado para próxima faixa
 function calcularProgresso(faixa) {
   const tempos = {
     'Branca': '6 a 12 meses',
@@ -142,24 +130,37 @@ function calcularProgresso(faixa) {
 
   return tempos[faixa] || 'Tempo indefinido';
 }
+
+// Assinatura de plano
 function assinarPlano(plano) {
-    let mensagem = '';
-    
-    switch(plano) {
-      case 'Mensal':
-        mensagem = 'Você escolheu o plano Mensal. O valor é R$ 258,00/mês.';
-        break;
-      case 'Semestral':
-        mensagem = 'Você escolheu o plano Semestral. O valor é R$ 1.441,42 (6x R$ 240,24). Economize 10%!';
-        break;
-      case 'Anual':
-        mensagem = 'Você escolheu o plano Anual. O valor é R$ 2.700,00 (12x R$ 225,00). Economize 15%!';
-        break;
-      default:
-        mensagem = 'Selecione um plano válido.';
-    }
-    
-    alert(mensagem);
+  let mensagem = '';
+
+  switch(plano) {
+    case 'Mensal':
+      mensagem = 'Você escolheu o plano Mensal. O valor é R$ 258,00/mês.';
+      break;
+    case 'Semestral':
+      mensagem = 'Você escolheu o plano Semestral. O valor é R$ 1.441,42 (6x R$ 240,24). Economize 10%!';
+      break;
+    case 'Anual':
+      mensagem = 'Você escolheu o plano Anual. O valor é R$ 2.700,00 (12x R$ 225,00). Economize 15%!';
+      break;
+    default:
+      mensagem = 'Selecione um plano válido.';
   }
 
-  
+  alert(mensagem);
+}
+
+// Fecha o modal ao clicar no botão X
+document.querySelector(".close").onclick = function () {
+  document.getElementById("modalCarrinho").style.display = "none";
+};
+
+// Fecha o modal ao clicar fora dele
+window.onclick = function (event) {
+  const modal = document.getElementById("modalCarrinho");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};

@@ -34,7 +34,7 @@
         <option value="Preta">Preta</option>
       </select>
 
-      <label for="modalidade">Modalidade:</label>
+      <label for="modalidade">Categoria</label>
       <select id="modalidade" required>
         <option value="">Selecione</option>
         <option value="Infantil">Infantil</option>
@@ -59,12 +59,16 @@
       <tr><td>Segunda-Feira</td><td>18:10</td><td>Infantil</td></tr>
       <tr><td>Segunda-Feira</td><td>19:00</td><td>Infanto Juvenil e Juvenil</td></tr>
       <tr><td>Segunda-Feira</td><td>20:00</td><td>Iniciante</td></tr>
+      <tr><td>Terça-Feira</td><td>06:00</td><td>Adulto</td></tr>
+      <tr><td>Terça-Feira</td><td>11:00</td><td>Adulto</td></tr>
       <tr><td>Terça-Feira</td><td>18:00</td><td>Infanto Juvenil e Juvenil</td></tr>
       <tr><td>Terça-Feira</td><td>19:00</td><td>Feminino</td></tr>
       <tr><td>Terça-Feira</td><td>20:00</td><td>Adulto</td></tr>
       <tr><td>Quarta-Feira</td><td>18:10</td><td>Infantil</td></tr>
       <tr><td>Quarta-Feira</td><td>19:00</td><td>Infanto Juvenil e Juvenil</td></tr>
       <tr><td>Quarta-Feira</td><td>20:00</td><td>Iniciante</td></tr>
+      <tr><td>Quinta-Feira</td><td>06:00</td><td>Adulto </td></tr>
+      <tr><td>Quinta-Feira</td><td>11:00</td><td>Adulto nogi</td></tr>
       <tr><td>Quinta-Feira</td><td>18:00</td><td>Infanto Juvenil e Juvenil</td></tr>
       <tr><td>Quinta-Feira</td><td>19:00</td><td>Feminino</td></tr>
       <tr><td>Quinta-Feira</td><td>20:00</td><td>Adulto</td></tr>
@@ -80,13 +84,6 @@
   </div>
 
   <!-- Carrinho de Compras -->
-  <div class="carrinho" id="carrinho">
-    <h2>Carrinho de Compras</h2>
-    <div id="itensCarrinho"></div>
-    <div><strong>Total:</strong> R$<span id="totalCarrinho">0.00</span></div>
-    <button onclick="finalizarCompra()">Finalizar Compra</button>
-  </div>
-
   <div class="produtos">
     <h2>Produtos para Venda</h2>
     <div class="produto" data-preco="400">
@@ -134,7 +131,27 @@
         <p>Rash Guard - R$150,00</p>
         <button onclick="adicionarCarrinho('Camiseta', 150)">Comprar</button>
       </div>
-  </div>
+        <div class="produto" data-preco="20">
+          <img src="pulseirasfaixa.jpg" alt="Pulseira cor da faixa">
+          <p>Pulseira cor da Faixa- R$20,00</p>
+          <button onclick="adicionarCarrinho('Pulseira cor da faixa', 20)">Comprar</button>
+        </div>
+          <div class="produto" data-preco="20">
+            <img src="xuxasdecetim.jfif" alt="xuxas de cabelo">
+            <p>Xuxas de cabelo - R$20,00</p>
+            <button onclick="adicionarCarrinho('xuxas de cabelo', 20)">Comprar</button>
+          </div>
+            <div class="produto" data-preco="30">
+              <img src="tapedejiu.webp" alt="tape">
+              <p>Tape - R$30,00</p>
+              <button onclick="adicionarCarrinho('Tape', 30)">Comprar</button>
+            </div>
+              <div class="produto" data-preco="300">
+                <img src="mochilaA4f.webp" alt="mochila A4f">
+                <p>Mochila - R$300,00</p>
+                <button onclick="adicionarCarrinho('mochila A4f', 300)">Comprar</button>
+              </div> 
+            </div>
 <!-- Modal Carrinho -->
 <div id="modalCarrinho" class="modal">
     <div class="modal-content">
